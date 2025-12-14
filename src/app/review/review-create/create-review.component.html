@@ -1,0 +1,55 @@
+<p>create-review works!</p>
+
+<div class="center">
+
+    <div class="row">
+        <div class="card col-md-6 offset-md-3 offset-md-3">
+            <div class="row">
+                <h3 class="text-center"> update  </h3>
+                <hr />
+                <div class="card-body">
+                    <form (ngSubmit)="onSubmit()">
+
+                        <div class="form-group">
+                            <label>Movie Id</label>
+                            <input type="number" class="form-control" id="reviewId" [(ngModel)]="review.reviewId"
+                                name="reviewId" disabled="">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="date">Add Date:</label>
+                            <input type="date"  class="form-control" id="date" [(ngModel)]="review.date" name="date">
+                        </div>
+    
+                        <div class="form-group">
+                            <label> Movie Description</label>
+                            <input type="text" class="form-control" id="descr" [(ngModel)]="review.descr" name="descr">
+                        </div>
+    
+                        <div class="form-group">
+                            <label> Rating</label>
+                            <input type="number" class="form-control" id="rating" [(ngModel)]="review.rating"
+                            name="rating">
+                        </div>
+
+                
+                        <div class="form-group">
+                            <label> Movie Id </label>
+                            <input type="number" class="form-control" id="movieId" [(ngModel)]="review.movieId"
+                            disabled="" name="movieId">
+                        </div>
+                        <div class="form-group">
+                            <label> Admin Id </label>
+                            <input type="number" class="form-control" id="adminId" [(ngModel)]="review.adminId"
+                            disabled="" name="adminId">
+                        </div>
+    
+                        <br />
+                        <button  class="btn btn-outline-secondary" type="submit">Submit</button>
+    
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>

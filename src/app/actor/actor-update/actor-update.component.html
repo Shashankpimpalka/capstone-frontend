@@ -1,0 +1,63 @@
+
+<div class="center">
+
+    <div class="row">
+        <div class="card col-md-6 offset-md-3 offset-md-3">
+            <div class="row">
+                <h3 class="text-center"> update Actor </h3>
+                <hr />
+                <div class="card-body">
+                    <form (ngSubmit)="onSubmit()">
+
+                        <div class="form-group">
+                            <label>Actor Id</label>
+                            <input type="text" class="form-control" id="actorId" [(ngModel)]="actor.actorId"
+                                name="actorId" disabled="">
+                        </div>
+    
+                        <div class="form-group">
+                            <label> First Name</label>
+                            <input type="text" class="form-control" id="firstName" [(ngModel)]="actor.firstName" name="firstName">
+                        </div>
+    
+                        <div class="form-group">
+                            <label> Last Name</label>
+                            <input type="text" class="form-control" id="lastName" [(ngModel)]="actor.lastName"
+                            [value]="actor.lastName" name="lastName">
+                        </div>
+
+                        
+                        <div class="form-check form-check-inline mt-2 mb-2" > 
+                            <input class="form-check-input" type="radio" [(ngModel)]="actor.gender" name="gender" id="gender" value="M">
+                            <label class="form-check-label" for="inlineRadio1">Male</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" [(ngModel)]="actor.gender" name="gender" id="gender" value="F">
+                            <label class="form-check-label" for="inlineRadio2">Female</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" [(ngModel)]="actor.gender" name="gender" id="gender" value="O">
+                            <label class="form-check-label" for="inlineRadio3">Other</label>
+                        </div>
+    
+                        <!-- <div class="form-group">
+                            <label> gender </label>
+                            <input type="text" class="form-control" id="gender" [(ngModel)]="actor.gender"
+                                name="gender">
+                        </div> -->
+
+                        <div class="form-group">
+                            <label> age </label>
+                            <input type="text" class="form-control" id="age" [(ngModel)]="actor.age"
+                            value="actor.age" name="age">
+                        </div>
+    
+                        <br />
+                        <button  class="btn btn-outline-secondary" type="submit">Submit</button>
+    
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>

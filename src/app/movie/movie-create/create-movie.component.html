@@ -1,0 +1,43 @@
+<div class="center">
+
+    <div class="row">
+        <div class="card col-md-6 offset-md-3 offset-md-3">
+            <div class="row">
+                <h3 class="text-center"> Create Movie </h3>
+                <hr />
+                <div class="card-body">
+                    <form (ngSubmit)="saveMovieOnClick()">
+
+                        <div class="form-group">
+                            <label> Movie Id</label>
+                            <input type="text" class="form-control" id="movieId" [(ngModel)]="movie.movieId"
+                               disabled="" name="movieId">
+                        </div>
+
+                        <div class="form-group">
+                            <label> Movie Title</label>
+                            <input type="text" class="form-control" id="movieTitle" [(ngModel)]="movie.movieTitle"
+                                name="movieTitle">
+                        </div>
+
+                        <div class="form-group">
+                            <label> Movie Cost </label>
+                            <input type="text" class="form-control" id="movieCost" [(ngModel)]="movie.movieCost"
+                                name="movieCost">
+                        </div>
+
+                        <div class="form-group">
+                            <label> Movie Year </label>
+                            <input type="text" class="form-control" id="movieYear" [(ngModel)]="movie.movieYear"
+                                name="movieYear">
+                        </div>
+
+                        <br />
+                        <button class="btn btn-outline-secondary" type="submit">Submit</button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
