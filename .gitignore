@@ -5,6 +5,12 @@
 build/
 dist/
 
+# Angular
+.angular/
+
+# Node dependencies
+node_modules/
+
 # Logs
 npm-debug.log*
 yarn-debug.log*
