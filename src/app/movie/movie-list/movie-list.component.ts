@@ -4,9 +4,10 @@ import { Router } from '@angular/router';
 import { MovieService } from 'src/app/services/movie.service';
 
 @Component({
-  selector: 'app-movie-list',
-  templateUrl: './movie-list.component.html',
-  styleUrls: ['./movie-list.component.css']
+    selector: 'app-movie-list',
+    templateUrl: './movie-list.component.html',
+    styleUrls: ['./movie-list.component.css'],
+    standalone: false
 })
 export class MovieListComponent implements OnInit {
  

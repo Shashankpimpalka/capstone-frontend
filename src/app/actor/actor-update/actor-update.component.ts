@@ -4,9 +4,10 @@ import { Actor } from 'src/app/actor';
 import { ActorService } from 'src/app/services/actor.service';
 import { Observable } from 'rxjs';
 @Component({
-  selector: 'app-actor-update',
-  templateUrl: './actor-update.component.html',
-  styleUrls: ['./actor-update.component.css']
+    selector: 'app-actor-update',
+    templateUrl: './actor-update.component.html',
+    styleUrls: ['./actor-update.component.css'],
+    standalone: false
 })
 export class ActorUpdateComponent implements OnInit {
 

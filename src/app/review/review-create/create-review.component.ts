@@ -10,9 +10,10 @@ import { ReviewService } from 'src/app/services/review.service';
 
 
 @Component({
-  selector: 'app-create-review',
-  templateUrl: './create-review.component.html',
-  styleUrls: ['./create-review.component.css']
+    selector: 'app-create-review',
+    templateUrl: './create-review.component.html',
+    styleUrls: ['./create-review.component.css'],
+    standalone: false
 })
 export class CreateReviewComponent implements OnInit {
 
