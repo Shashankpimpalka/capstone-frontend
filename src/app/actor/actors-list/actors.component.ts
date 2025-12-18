@@ -6,9 +6,10 @@ import { Router } from '@angular/router'
 
 
 @Component({
-  selector: 'app-actors',
-  templateUrl: './actors.component.html',
-  styleUrls: ['./actors.component.css']
+    selector: 'app-actors',
+    templateUrl: './actors.component.html',
+    styleUrls: ['./actors.component.css'],
+    standalone: false
 })
 export class ActorsComponent implements OnInit {
 

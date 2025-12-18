@@ -5,9 +5,10 @@ import { AdminService } from '../../services/admin.service';
 
 
 @Component({
-  selector: 'app-create-admin',
-  templateUrl: './create-admin.component.html',
-  styleUrls: ['./create-admin.component.css']
+    selector: 'app-create-admin',
+    templateUrl: './create-admin.component.html',
+    styleUrls: ['./create-admin.component.css'],
+    standalone: false
 })
 export class CreateAdminComponent implements OnInit {
 
