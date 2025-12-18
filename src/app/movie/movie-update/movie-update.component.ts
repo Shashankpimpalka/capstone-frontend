@@ -4,9 +4,10 @@ import { Movie } from 'src/app/movie';
 import { MovieService } from 'src/app/services/movie.service';
 
 @Component({
-  selector: 'app-movie-update',
-  templateUrl: './movie-update.component.html',
-  styleUrls: ['./movie-update.component.css']
+    selector: 'app-movie-update',
+    templateUrl: './movie-update.component.html',
+    styleUrls: ['./movie-update.component.css'],
+    standalone: false
 })
 export class MovieUpdateComponent implements OnInit {
 

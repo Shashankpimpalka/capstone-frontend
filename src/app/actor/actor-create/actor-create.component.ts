@@ -4,9 +4,10 @@ import { Actor } from 'src/app/actor';
 import { ActorService } from 'src/app/services/actor.service';
 
 @Component({
-  selector: 'app-ator-create',
-  templateUrl: './actor-create.component.html',
-  styleUrls: ['./actor-create.component.css']
+    selector: 'app-ator-create',
+    templateUrl: './actor-create.component.html',
+    styleUrls: ['./actor-create.component.css'],
+    standalone: false
 })
 export class AtorCreateComponent implements OnInit{
 

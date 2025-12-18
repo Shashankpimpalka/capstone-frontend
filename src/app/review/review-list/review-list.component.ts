@@ -4,9 +4,10 @@ import { Review } from 'src/app/review';
 import { ReviewService } from 'src/app/services/review.service';
 
 @Component({
-  selector: 'app-review-list',
-  templateUrl: './review-list.component.html',
-  styleUrls: ['./review-list.component.css']
+    selector: 'app-review-list',
+    templateUrl: './review-list.component.html',
+    styleUrls: ['./review-list.component.css'],
+    standalone: false
 })
 export class ReviewListComponent implements OnInit {
 
