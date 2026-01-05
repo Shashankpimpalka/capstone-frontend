@@ -1,0 +1,19 @@
+app-top-bar {
+    display: block;
+    width: 100%;
+    z-index: 1000;
+}
+
+
+
+
+
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.layout {
+  padding-top: 70px;
+  width: 100%;
+}

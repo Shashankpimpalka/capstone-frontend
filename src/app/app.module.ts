@@ -4,7 +4,7 @@ import { GuardsCheckEnd, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { ActorsComponent } from './actor/actors-list/actors.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { HttpClient, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { AdminComponent } from './admin/admin-list/admin.component';
 import { CreateAdminComponent } from './admin/create-admin/create-admin.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -20,6 +20,8 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { LogoutComponent } from './logout/logout.component';
 import { AuthGuard } from './services/guard/auth.guard';
+import { ChatComponent } from './chat/chat.component';
+import { MarkdownModule } from 'ngx-markdown';
 
 
 @NgModule({ declarations: [
@@ -39,11 +41,15 @@ import { AuthGuard } from './services/guard/auth.guard';
         LoginComponent,
         SignupComponent,
         LogoutComponent,
+        ChatComponent
     ],
     bootstrap: [AppComponent], imports: [BrowserModule,
         FormsModule,
         ReactiveFormsModule,
+        MarkdownModule.forRoot({loader:HttpClient}),
         RouterModule.forRoot([
+
+            { path: 'chat', component: ChatComponent },
             { path: 'actor', component: ActorsComponent, canActivate: [AuthGuard] },
             { path: 'admin', component: AdminComponent, canActivate: [AuthGuard] },
             { path: 'review', component: ReviewListComponent, canActivate: [AuthGuard] },
@@ -55,8 +61,10 @@ import { AuthGuard } from './services/guard/auth.guard';
             { path: 'updatemovie/:movieId', component: MovieUpdateComponent, canActivate: [AuthGuard] },
             { path: 'updatereview/:reviewId', component: ReviewUpdateComponent, canActivate: [AuthGuard] },
             { path: 'updateactor/:actorId', component: ActorUpdateComponent, canActivate: [AuthGuard] },
-            { path: '', component: LoginComponent },
+            { path: 'login', component: LoginComponent },
             { path: 'signup', component: SignupComponent },
-            { path: 'logout', component: LogoutComponent }
+            { path: 'logout', component: LogoutComponent },
+            { path : '', redirectTo: '/login', pathMatch: 'full' },
+            
         ])], providers: [provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule { }
