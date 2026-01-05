@@ -1,0 +1,28 @@
+<h1 >Chat with Jarvis</h1>
+<div class="chat-container">
+    <div class="messages">
+        <div *ngFor="let msg of messages" [ngClass]="msg.sender">
+            <ng-container *ngIf='msg.sender === "user"'>
+                <h6>You: {{msg.text}}</h6>
+            </ng-container>
+
+            <ng-container *ngIf='msg.sender === "Jarvis"'>
+
+            <h6>Jarvis: <markdown [data]="msg.text"></markdown></h6>
+            </ng-container>
+        </div>
+    </div>
+
+
+
+    <div class="input-area">
+        <div *ngIf="loading" class="Jarvis-typing">
+            <div class="spinner"></div>
+            <span> jarvis is thinking...</span>
+        </div>
+        <input type="text" [(ngModel)]="question" placeholder="Ask me question...." (keyup.enter)="askQuestion()" />
+        <span ></span>
+        <button (click)="askQuestion()" [disabled]="loading">Send</button>
+    </div>
+
+</div>
