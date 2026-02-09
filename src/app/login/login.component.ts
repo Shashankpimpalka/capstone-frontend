@@ -28,8 +28,8 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.formData = new FormGroup({
-      userName: new FormControl("shashank@gmail.com"),
-      password: new FormControl("pass"),
+      userName: new FormControl("shashnk@example.com"),
+      password: new FormControl("password123"),
     });
 
   }

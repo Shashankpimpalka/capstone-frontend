@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { ChatService } from 'src/app/chat.service';
+import { ChatService } from '../services/chat.service';
 
 interface Message {
   sender: 'user' | 'Jarvis';
@@ -41,7 +41,14 @@ export class ChatComponent {
     const botMessage = { sender: 'Jarvis' as const, text: '' };
     this.messages.push(botMessage);
     this.loading = true;
-    this.chatService.streamAnswer(this.question)
+    this.chatService.nonStreamAnswer(this.question).subscribe(
+      {next:(Response: any)=>{
+        botMessage.text = Response
+        this.loading = false;
+        this.question = '';
+      }}
+    )
+/*     this.chatService.streamAnswer(this.question)
       .subscribe({
         next: (word) => {
           botMessage.text += word;
@@ -57,6 +64,6 @@ export class ChatComponent {
           this.loading = false;
         }
 
-      });
+      }); */
   }
 }
