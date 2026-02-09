@@ -22,6 +22,7 @@ import { LogoutComponent } from './logout/logout.component';
 import { AuthGuard } from './services/guard/auth.guard';
 import { ChatComponent } from './chat/chat.component';
 import { MarkdownModule } from 'ngx-markdown';
+import { ChatWithPdfComponent } from './chat.with.pdf/chat.with.pdf.component';
 
 
 @NgModule({ declarations: [
@@ -50,6 +51,7 @@ import { MarkdownModule } from 'ngx-markdown';
         RouterModule.forRoot([
 
             { path: 'chat', component: ChatComponent },
+            { path: 'chat-pdf', component: ChatWithPdfComponent },
             { path: 'actor', component: ActorsComponent, canActivate: [AuthGuard] },
             { path: 'admin', component: AdminComponent, canActivate: [AuthGuard] },
             { path: 'review', component: ReviewListComponent, canActivate: [AuthGuard] },

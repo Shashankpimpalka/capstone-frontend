@@ -8,10 +8,14 @@ import { NgZone } from '@angular/core';
   providedIn: 'root',
 })
 export class ChatService {
-  private readonly baseUrl = 'http://localhost:8765/global-station-movie-service/api/v0/ask'
-
-  constructor(private ngZone: NgZone) { }
-
+  private readonly baseUrl = 'http://localhost:8765/pdf-chatbot-service/chat-with-jarvis'
+  // private readonly baseUrl = 'http://localhost:8001/api/ai/chat'
+  constructor(private ngZone: NgZone, private httpClient: HttpClient) { }
+  nonStreamAnswer(question: String): Observable<String>{
+    const payload = {"prompt": question}
+    return this.httpClient.post<String>(`${this.baseUrl}`,payload)
+  }
+/* 
   streamAnswer(question: string): Observable<string> {
     return new Observable(observer => {
       const eventSource = new EventSource(`${this.baseUrl}?prompt=${encodeURIComponent(question)}`);
@@ -49,6 +53,7 @@ export class ChatService {
         eventSource.close();
       }
 
-    });
-  }
+    }); */
+
+  
 }
