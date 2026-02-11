@@ -3,17 +3,28 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { NgZone } from '@angular/core';
+import { pdfChat } from '../pdfChat';    
+import { QuestionOnPdf } from '../QuestionOnPdf';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ChatService {
-  private readonly baseUrl = 'http://localhost:8765/pdf-chatbot-service/chat-with-jarvis'
+  private readonly baseUrl = 'http://localhost:8765/pdf-chatbot-service/'
   // private readonly baseUrl = 'http://localhost:8001/api/ai/chat'
   constructor(private ngZone: NgZone, private httpClient: HttpClient) { }
-  nonStreamAnswer(question: String): Observable<String>{
+  nonStreamAnswer(question: string): Observable<string>{
     const payload = {"prompt": question}
-    return this.httpClient.post<String>(`${this.baseUrl}`,payload)
+    return this.httpClient.post<string>(`${this.baseUrl}chat-with-jarvis`,payload)
+  }
+  uploadPdf(formData: FormData): Observable<string>{
+    return this.httpClient.post<string>(`${this.baseUrl}upload-pdf`,formData)
+  }
+  chatWithPdf(prompt: QuestionOnPdf): Observable<pdfChat>{
+    return this.httpClient.post<pdfChat>(`${this.baseUrl}ask`,prompt)
+  }
+  clearDatabase(): Observable<string>{
+    return this.httpClient.delete<string>(`${this.baseUrl}clear-database`)
   }
 /* 
   streamAnswer(question: string): Observable<string> {
