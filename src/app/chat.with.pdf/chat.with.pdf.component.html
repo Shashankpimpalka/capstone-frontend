@@ -1,1 +1,59 @@
-<p>chat.with.pdf works!</p>
+<div class="main-wrapper">
+  
+  <aside class="sidebar">
+    <h1 class="sidebar-title">PDF Vault</h1>
+    
+    <div class="upload-container">
+      <label class="upload-label">
+        <span class="icon">📁</span>
+        <p>Click to upload PDF</p>
+        <input type="file" class="hidden-input" (change)="onFileSelected($event)" accept=".pdf" />
+      </label>
+    </div>
+
+    <div class="file-list-area">
+      <p class="label">My Documents</p>
+      <ul class="file-list">
+        <li *ngFor="let fileName of uploadedFiles" class="file-item">
+          📄 {{ fileName }}
+        </li>
+      </ul>
+    </div>
+  </aside>
+
+  <main class="chat-container">
+    <header class="chat-header">
+      <h1>Chat with Jarvis</h1>
+      <span class="status">Status: Ready</span>
+    </header>
+
+    <div class="messages">
+      <div *ngFor="let msg of chatHistory" [ngClass]="msg.sender" class="message-row">
+        <ng-container *ngIf='msg.sender === "user"'>
+          <div class="bubble user-bubble">
+            <h6>You: {{msg.message}}</h6>
+          </div>
+        </ng-container>
+
+        <ng-container *ngIf='msg.sender === "jarvis"'>
+          <div class="bubble jarvis-bubble">
+            <div style="white-space: pre-wrap;">Jarvis: {{ msg.message }}</div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+
+    <div class="input-area">
+      <div *ngIf="isThinking" class="Jarvis-typing">
+        <div class="spinner"></div>
+        <span>Jarvis is thinking...</span>
+      </div>
+      
+      <div class="input-controls">
+        <input type="text" [(ngModel)]="userInput" placeholder="Ask me a question about your PDFs..." (keyup.enter)="sendMessage()" />
+        <button (click)="sendMessage()" [disabled]="isThinking || !userInput">Send</button>
+      </div>
+    </div>
+  </main>
+
+</div>
